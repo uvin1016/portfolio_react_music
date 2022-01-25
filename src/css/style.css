@@ -12,14 +12,15 @@ a {
   text-decoration: none; }
 
 body {
-  background: #111; }
+  background: #050505; }
 
 header {
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  padding: 50px 0; }
+  padding: 50px 0 0;
+  z-index: 1; }
   header .inner {
     width: 90%;
     margin: 0 auto;
@@ -74,7 +75,7 @@ main {
       main .inner .container article {
         width: calc(100%/6);
         height: 300px;
-        background-color: #050505;
+        position: relative;
         cursor: pointer; }
         main .inner .container article .wrap {
           width: 100%;
@@ -109,6 +110,31 @@ main {
             main .inner .container article .wrap .txt p {
               font: 300 14px/1 "Chakra Petch";
               color: rgba(255, 255, 255, 0.8); }
+        main .inner .container article::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          opacity: 0;
+          border-top: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid transparent;
+          border-left: 25px solid #fff;
+          transform: translateY(-200px);
+          transition: .3s; }
+        main .inner .container article.play::after {
+          width: 8px;
+          height: 30px;
+          opacity: 1;
+          border-top: 0px solid transparent;
+          border-right: 5px solid #fff;
+          border-bottom: 0px solid transparent;
+          border-left: 5px solid #fff;
+          transform: translate(-50%, -50%); }
+        main .inner .container article:hover::after {
+          opacity: 1;
+          transform: translate(-25%, -25%); }
         main .inner .container article:nth-of-type(1) .wrap, main .inner .container article:nth-of-type(6) .wrap {
           border-radius: 120px 0px 120px 0px; }
         main .inner .container article:nth-of-type(7) .wrap, main .inner .container article:nth-of-type(12) .wrap {
@@ -120,5 +146,13 @@ main {
           main .inner .container article.play .wrap .txt, main .inner .container article:hover .wrap .txt {
             transform: translateY(100px);
             opacity: 0; }
+        main .inner .container article.play .wrap {
+          animation: circle 10s linear forwards; }
+
+@keyframes circle {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 
 /*# sourceMappingURL=style.css.map */
