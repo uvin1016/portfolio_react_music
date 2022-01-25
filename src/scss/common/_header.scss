@@ -1,0 +1,40 @@
+header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 50px 0;
+
+    .inner {
+        width: 1180px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+
+        h1 {
+            font: 600 26px/1 "Merriweather Sans";
+            color: #66806A;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        a {
+            font: 300 16px/26px "Chakra Petch";
+            color: #888;
+            transition: .3s;
+
+            &:hover {
+                color: #66806A;
+                transform: translate(-2px, -2px);
+            }
+        }
+    }
+}
+
+@media  screen and (max-width: 1200px) {
+    header {
+        .inner {
+            width: calc(100% - 40px);
+        }
+    }
+}

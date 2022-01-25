@@ -1,0 +1,26 @@
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    padding: 30px 0px;
+
+    .inner {
+        width: 1180px;
+        margin: 0 auto;
+
+        p {
+            font: 300 14px/1 "Chakra Petch";
+            color: #888;
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    footer {
+        .inner {
+            width: calc(100% - 40px);
+        }
+    }
+}

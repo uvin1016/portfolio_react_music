@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 // common
-@import "reset.scss";
-@import "header.scss";
-@import "footer.scss";
+@import "common/reset";
+@import "common/header";
+@import "common/footer";
 
 // main
-@import "main.scss";
+@import "main/main";
