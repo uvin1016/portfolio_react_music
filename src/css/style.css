@@ -12,8 +12,7 @@ a {
   text-decoration: none; }
 
 body {
-  background: #111;
-  overflow: hidden; }
+  background: #111; }
 
 header {
   width: 100%;
@@ -22,13 +21,13 @@ header {
   left: 0;
   padding: 50px 0; }
   header .inner {
-    width: 1180px;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between; }
     header .inner h1 {
       font: 600 26px/1 "Merriweather Sans";
-      color: #66806A;
+      color: #fff;
       letter-spacing: 1px;
       cursor: pointer; }
     header .inner a {
@@ -39,9 +38,6 @@ header {
         color: #66806A;
         transform: translate(-2px, -2px); }
 
-@media screen and (max-width: 1200px) {
-  header .inner {
-    width: calc(100% - 40px); } }
 footer {
   width: 100%;
   position: fixed;
@@ -49,15 +45,80 @@ footer {
   left: 0px;
   padding: 30px 0px; }
   footer .inner {
-    width: 1180px;
+    width: 90%;
     margin: 0 auto; }
     footer .inner p {
       font: 300 14px/1 "Chakra Petch";
       color: #888;
       text-align: center; }
 
-@media screen and (max-width: 1200px) {
-  footer .inner {
-    width: calc(100% - 40px); } }
+main {
+  width: 100%;
+  height: 100vh; }
+  main .inner {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative; }
+    main .inner .container {
+      width: 100%;
+      height: 600px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+      main .inner .container article {
+        width: calc(100%/6);
+        height: 300px;
+        background-color: #050505;
+        cursor: pointer; }
+        main .inner .container article .wrap {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+          transition: .5s; }
+          main .inner .container article .wrap .pic {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%; }
+            main .inner .container article .wrap .pic img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              opacity: 0.6;
+              transition: .5s; }
+          main .inner .container article .wrap .txt {
+            position: absolute;
+            left: 40px;
+            bottom: 40px;
+            opacity: 1;
+            transition: .5s; }
+            main .inner .container article .wrap .txt h2 {
+              font: 500 20px/1.2 "Chakra Petch";
+              color: #fff; }
+            main .inner .container article .wrap .txt h3 {
+              font: 400 16px/1.2 "Chakra Petch";
+              color: #fff; }
+            main .inner .container article .wrap .txt p {
+              font: 300 14px/1 "Chakra Petch";
+              color: rgba(255, 255, 255, 0.8); }
+        main .inner .container article:nth-of-type(1) .wrap, main .inner .container article:nth-of-type(6) .wrap {
+          border-radius: 120px 0px 120px 0px; }
+        main .inner .container article:nth-of-type(7) .wrap, main .inner .container article:nth-of-type(12) .wrap {
+          border-radius: 0px 120px 0px 120px; }
+        main .inner .container article.play .wrap, main .inner .container article:hover .wrap {
+          border-radius: 50%; }
+          main .inner .container article.play .wrap .pic img, main .inner .container article:hover .wrap .pic img {
+            opacity: 1; }
+          main .inner .container article.play .wrap .txt, main .inner .container article:hover .wrap .txt {
+            transform: translateY(100px);
+            opacity: 0; }
 
 /*# sourceMappingURL=style.css.map */
