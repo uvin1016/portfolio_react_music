@@ -16,11 +16,7 @@ body {
 
 header {
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 50px 0 0;
-  z-index: 1; }
+  padding: 50px 0 0; }
   header .inner {
     width: calc(100% - 80px);
     margin: 0 auto;
@@ -41,9 +37,6 @@ header {
 
 footer {
   width: 100%;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
   padding: 30px 0px; }
   footer .inner {
     width: calc(100% - 80px);
@@ -60,6 +53,21 @@ main {
     height: 100%;
     margin: 0 auto;
     position: relative; }
+    main .inner .createBtn {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 7px 10px;
+      border: 1px solid #888;
+      background: transparent;
+      font: 400 20px/1 'Chakra Petch';
+      color: #888;
+      transition: .3s;
+      cursor: pointer; }
+      main .inner .createBtn:hover {
+        color: #fff;
+        border: 1px solid #fff; }
     main .inner .container {
       width: 100%;
       height: 100%;
@@ -67,7 +75,7 @@ main {
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      padding: 150px 0; }
+      padding: 100px 0 80px; }
       main .inner .container article {
         width: 300px;
         height: 300px;
@@ -144,7 +152,52 @@ main {
             opacity: 0; }
         main .inner .container article.play .wrap {
           animation: circle 10s linear forwards; }
+  main .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 500px;
+    background: #fff; }
+    main .popup .inner {
+      width: 100%;
+      height: 100%;
+      padding: 60px 30px; }
+      main .popup .inner input {
+        width: 100%;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        font: 300 14px/1 'Chakra Petch';
+        color: #050505; }
+    main .popup button {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      font: 400 16px/1 'Chakra Petch';
+      color: #888;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 15px 30px;
+      transition: .3s; }
+      main .popup button:hover {
+        color: #050505; }
 
+@media screen and (max-width: 400px) {
+  main .inner .container article {
+    width: 220px;
+    height: 220px; }
+    main .inner .container article .wrap .txt {
+      width: 170px;
+      left: 20px;
+      bottom: 30px; }
+    main .inner .container article::after {
+      transform: translateY(-100px); }
+    main .inner .container article:nth-of-type(1) .wrap, main .inner .container article:nth-of-type(6) .wrap {
+      border-radius: 80px 0px 80px 0px; }
+    main .inner .container article:nth-of-type(7) .wrap, main .inner .container article:nth-of-type(12) .wrap {
+      border-radius: 0px 80px 0px 80px; } }
 @keyframes circle {
   0% {
     transform: rotate(0deg); }
