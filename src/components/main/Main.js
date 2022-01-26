@@ -10,8 +10,11 @@ function Main(){
     const isTitle = useRef(null);
     const isArtist = useRef(null);
     const isJanre = useRef(null);
+    const editTitle = useRef(null);
+    const editArtist = useRef(null);
+    const editJanre = useRef(null);
 
-    const getLocalItems = (json)=>{
+    const getLocalItems = ()=>{
         let data = localStorage.getItem('albums');
 
         if(data){
@@ -122,16 +125,52 @@ function Main(){
         isArtist.current.value = "";
         isJanre.current.value = "";
     }
+
+    const deleteAlbum = index=>{
+        setAlbums(albums.filter((_,albumIndex)=> albumIndex !== index));
+    }
+
+    const enableUdate = index=>{
+        setAlbums(
+            albums.map((music, albumIndex)=>{
+                if(albumIndex === index) music.enableUdate = true;
+                return music;
+            })
+        )
+    }
+
+    const disableUpdate = index=>{
+        setAlbums(
+            albums.map((music, albumIndex)=>{
+                if(albumIndex === index) music.enableUdate = false;
+                return music;
+            })
+        )
+    }
+
+    const updateAlbum = index=>{
+        setAlbums(
+            albums.map((music,albumIndex)=>{
+                if(albumIndex === index){
+                    music.title = editTitle.current.value;
+                    music.artist = editArtist.current.value;
+                    music.janre = editJanre.current.value;
+                    music.enableUdate = false;
+                }
+                return music;
+            })
+        )
+    }
     
     const playMusic = e=>{
-        let isActive = e.currentTarget.classList.contains('play');
+        let isActive = e.currentTarget.closest("article").classList.contains('play');
 
         if(isActive){
-            e.currentTarget.classList.remove('play');
+            e.currentTarget.closest("article").classList.remove('play');
             e.currentTarget.querySelector("audio").pause();
         }else{
             initMusic();
-            e.currentTarget.classList.add('play');
+            e.currentTarget.closest("article").classList.add('play');
             e.currentTarget.querySelector("audio").play();
         }
     }
@@ -147,16 +186,6 @@ function Main(){
     }
 
     const Popup = ()=>{
-        useEffect(()=>{
-            console.log("팝업 생성");
-            body.style.overflow = "hidden";
-
-            return ()=>{
-                console.log("팝업 제거");
-                body.style.overflow = "auto";
-            }
-        },[]);
-
         return (
             <aside className="popup">
                 <div className="inner">
@@ -169,10 +198,10 @@ function Main(){
                             isTitle.current.value =  "";
                             isArtist.current.value = "";
                             isJanre.current.value = "";
+                            setIsPop(false);
                         }}>취소</li>
                     </ul>
                 </div>
-                <button className="close" onClick={()=>setIsPop(false)}>close</button>
             </aside>
         )
     }
@@ -191,20 +220,48 @@ function Main(){
                         albums.map((music, index)=>{
                             if(index < 12){
                                 return (
-                                    <article key={index} onClick={e=>{
-                                        playMusic(e);
-                                    }}>
-                                        <div className="wrap">
-                                            <div className="pic">
-                                                <img src={`${path}`+music.img} />
-                                            </div>
-                                            <div className="txt">
-                                                <h2>{music.title}</h2>
-                                                <h3>{music.artist}</h3>
-                                                <p>{music.janre}</p>
-                                                <audio src={`${path}`+music.mp3}></audio>
-                                            </div>
-                                        </div>
+                                    <article key={index}>
+                                            {
+                                                music.enableUdate
+                                                ?
+                                                <>
+                                                    <div className="wrap">
+                                                        <div className="pic">
+                                                            <img src={`${path}`+music.img} />
+                                                        </div>
+                                                        <div className="txt editTxt">
+                                                            <input type="text" placeholder="제목을 입력하세요." defaultValue={music.title} ref={editTitle} />
+                                                            <input type="text" placeholder="아티스트를 입력하세요." defaultValue={music.artist} ref={editArtist} />
+                                                            <input type="text" placeholder="음악 장르를 입력하세요." defaultValue={music.janre} ref={editJanre} />
+                                                            <audio src={`${path}`+music.mp3}></audio>
+                                                        </div>
+                                                    </div>
+                                                    <ul className="enableBtns">
+                                                        <li onClick={()=>updateAlbum(index)}>입력</li>
+                                                        <li onClick={()=>disableUpdate(index)}>취소</li>
+                                                    </ul>
+                                                </>
+                                                :
+                                                <>
+                                                    <div className="wrap" onClick={e=>{
+                                                        playMusic(e);
+                                                    }}>
+                                                        <div className="pic">
+                                                            <img src={`${path}`+music.img} />
+                                                        </div>
+                                                        <div className="txt">
+                                                            <h2>{music.title}</h2>
+                                                            <h3>{music.artist}</h3>
+                                                            <p>{music.janre}</p>
+                                                            <audio src={`${path}`+music.mp3}></audio>
+                                                        </div>
+                                                    </div>
+                                                    <ul className="enableBtns">
+                                                        <li onClick={()=>enableUdate(index)}>수정</li>
+                                                        <li onClick={()=>deleteAlbum(index)}>삭제</li>
+                                                    </ul>
+                                                </>
+                                            }
                                     </article>
                                 )
                             }

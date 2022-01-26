@@ -79,14 +79,14 @@ main {
       main .inner .container article {
         width: 300px;
         height: 300px;
-        position: relative;
-        cursor: pointer; }
+        position: relative; }
         main .inner .container article .wrap {
           width: 100%;
           height: 100%;
           position: relative;
           overflow: hidden;
-          transition: .5s; }
+          transition: .5s;
+          cursor: pointer; }
           main .inner .container article .wrap .pic {
             position: absolute;
             top: 0px;
@@ -114,6 +114,18 @@ main {
             main .inner .container article .wrap .txt p {
               font: 300 14px/1 "Chakra Petch";
               color: rgba(255, 255, 255, 0.8); }
+        main .inner .container article .enableBtns {
+          position: absolute;
+          left: 5px;
+          bottom: 5px; }
+          main .inner .container article .enableBtns li {
+            display: inline-block;
+            font: 300 12px/1 "Chakra Petch";
+            color: #fff;
+            transition: .3s;
+            margin-right: 5px;
+            opacity: 0;
+            cursor: pointer; }
         main .inner .container article::after {
           content: '';
           display: block;
@@ -139,6 +151,10 @@ main {
         main .inner .container article:hover::after {
           opacity: 1;
           transform: translate(-25%, -25%); }
+        main .inner .container article:hover .enableBtns li {
+          opacity: 1; }
+          main .inner .container article:hover .enableBtns li:hover {
+            color: #66806A; }
         main .inner .container article:nth-of-type(1) .wrap, main .inner .container article:nth-of-type(6) .wrap {
           border-radius: 120px 0px 120px 0px; }
         main .inner .container article:nth-of-type(7) .wrap, main .inner .container article:nth-of-type(12) .wrap {
@@ -150,6 +166,9 @@ main {
           main .inner .container article.play .wrap .txt, main .inner .container article:hover .wrap .txt {
             transform: translateY(100px);
             opacity: 0; }
+          main .inner .container article.play .wrap .txt.editTxt, main .inner .container article:hover .wrap .txt.editTxt {
+            transform: translate(0px);
+            opacity: 1; }
         main .inner .container article.play .wrap {
           animation: circle 10s linear forwards; }
   main .popup {
@@ -158,31 +177,37 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 300px;
-    height: 500px;
-    background: #fff; }
+    background: #fff;
+    border-radius: 8px;
+    z-index: 11; }
     main .popup .inner {
       width: 100%;
       height: 100%;
-      padding: 60px 30px; }
+      padding: 30px; }
       main .popup .inner input {
         width: 100%;
         padding: 5px 10px;
-        margin-bottom: 10px;
+        margin-bottom: 14px;
         font: 300 14px/1 'Chakra Petch';
         color: #050505; }
-    main .popup button {
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      font: 400 16px/1 'Chakra Petch';
-      color: #888;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      padding: 15px 30px;
-      transition: .3s; }
-      main .popup button:hover {
-        color: #050505; }
+      main .popup .inner .btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap; }
+        main .popup .inner .btns li {
+          width: 100px;
+          padding: 8px 10px;
+          border: 1px solid #888;
+          text-align: center;
+          font: 300 14px/1 'Chakra Petch';
+          color: #888;
+          cursor: pointer;
+          transition: .3s; }
+          main .popup .inner .btns li:hover {
+            background-color: #66806A;
+            color: #fff;
+            border: 1px solid #66806A; }
 
 @media screen and (max-width: 400px) {
   main .inner .container article {
