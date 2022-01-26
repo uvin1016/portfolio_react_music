@@ -112,6 +112,8 @@ function Main(){
     const [albums, setAlbums] = useState(getLocalItems);
 
     const createAlbum = ()=>{
+        alert("이미지와 음악파일 업로드 시키는 것은 수정하는 중입니다.");
+        
         setAlbums([
             {
                 title: isTitle.current.value,
