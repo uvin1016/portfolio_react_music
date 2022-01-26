@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/portfolio_react_music/static/css/main.2cceabdf.css",
+    "main.js": "/portfolio_react_music/static/js/main.d5633368.js",
+    "index.html": "/portfolio_react_music/index.html",
+    "main.2cceabdf.css.map": "/portfolio_react_music/static/css/main.2cceabdf.css.map",
+    "main.d5633368.js.map": "/portfolio_react_music/static/js/main.d5633368.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2cceabdf.css",
+    "static/js/main.d5633368.js"
+  ]
+}
