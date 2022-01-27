@@ -1,8 +1,6 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 
-const body = document.querySelector("body");
-
 function Main(){
     const path = process.env.PUBLIC_URL;
     const [isPop, setIsPop] = useState(false);
@@ -112,7 +110,11 @@ function Main(){
     const [albums, setAlbums] = useState(getLocalItems);
 
     const createAlbum = ()=>{
-        alert("이미지와 음악파일 업로드 시키는 것은 수정하는 중입니다.");
+        if(!isTitle.current.value || !isArtist.current.value || !isJanre.current.value) {
+            alert("제목과 아티스트, 음악 장르를 작성해주세요.");
+        }else{
+            alert("이미지 파일 업로드와 음악 파일 업로드는 준비중입니다.");
+        }
         
         setAlbums([
             {
@@ -194,8 +196,12 @@ function Main(){
                     <input type="text" placeholder="제목을 입력하세요." ref={isTitle} />
                     <input type="text" placeholder="아티스트를 입력하세요." ref={isArtist} />
                     <input type="text" placeholder="음악 장르를 입력하세요." ref={isJanre} />
+                    <input type="file" placeholder="jpg를 등록하세요." ref={isImg} />
+                    <input type="file" placeholder="음악을 등록하세요" ref={isMp3} />
                     <ul className="btns">
-                        <li onClick={createAlbum}>업로드</li>
+                        <li onClick={createAlbum,()=>{
+                            setIsPop(false);
+                        }}>업로드</li>
                         <li onClick={()=>{
                             isTitle.current.value =  "";
                             isArtist.current.value = "";

@@ -114,6 +114,8 @@ main {
             main .inner .container article .wrap .txt p {
               font: 300 14px/1 "Chakra Petch";
               color: rgba(255, 255, 255, 0.8); }
+            main .inner .container article .wrap .txt.editTxt {
+              left: 50px; }
         main .inner .container article .enableBtns {
           position: absolute;
           left: 5px;

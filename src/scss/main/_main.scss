@@ -85,6 +85,10 @@ main {
                             font: 300 14px/1 "Chakra Petch";
                             color: rgba(255,255,255,0.8);
                         }
+
+                        &.editTxt {
+                            left: 50px;
+                        }
                     }
                 }
 
