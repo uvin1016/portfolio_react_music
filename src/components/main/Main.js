@@ -196,8 +196,6 @@ function Main(){
                     <input type="text" placeholder="제목을 입력하세요." ref={isTitle} />
                     <input type="text" placeholder="아티스트를 입력하세요." ref={isArtist} />
                     <input type="text" placeholder="음악 장르를 입력하세요." ref={isJanre} />
-                    <input type="file" placeholder="jpg를 등록하세요." ref={isImg} />
-                    <input type="file" placeholder="음악을 등록하세요" ref={isMp3} />
                     <ul className="btns">
                         <li onClick={createAlbum,()=>{
                             setIsPop(false);
