@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { HashRouter } from "react-router-dom";
+import Firebase from './Firebase';
+console.log(Firebase);
 
 ReactDOM.render(
   <React.StrictMode>
