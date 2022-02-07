@@ -5,7 +5,7 @@ import { db, storage } from '../FirebaseConfig';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function AddMusic() {
+export default function AddBoard() {
     const [formData, setFormData] = useState({
         title: "",
         artist: "",
@@ -29,6 +29,7 @@ export default function AddMusic() {
         }
         const storageRef = ref(storage,`images/${Date.now()}${formData.image.name}`);
         const uploadImage =  uploadBytesResumable(storageRef, formData.image);
+
         uploadImage.on("state_changed", ()=>{
             setFormData({
                 title: "",
@@ -55,6 +56,7 @@ export default function AddMusic() {
                 });
             })
         });
+
     }
 
     return (
