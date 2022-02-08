@@ -19,25 +19,31 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 50px 0 0; }
+  padding: 40px 0 0;
+  z-index: 10; }
   header .inner {
-    width: calc(100% - 80px);
+    width: 1180px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between; }
     header .inner h1 {
-      font: 600 26px/1 "Merriweather Sans";
-      color: #fff;
-      letter-spacing: 1px;
       cursor: pointer; }
+      header .inner h1 > a {
+        font: 600 26px/1 "Merriweather Sans";
+        color: #fff;
+        letter-spacing: 1px; }
     header .inner a {
-      font: 300 16px/26px "Chakra Petch";
+      display: block;
+      font: 400 18px/26px "Chakra Petch";
       color: #888;
-      transition: .3s; }
+      transition: .3s;
+      cursor: pointer; }
       header .inner a:hover {
-        color: #66806A;
-        transform: translate(-2px, -2px); }
+        color: #fff; }
 
+@media screen and (max-width: 1200px) {
+  header .inner {
+    width: calc(100% - 80px); } }
 footer {
   position: fixed;
   bottom: 0;
