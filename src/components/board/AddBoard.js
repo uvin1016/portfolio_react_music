@@ -10,6 +10,7 @@ export default function AddBoard() {
         title: "",
         artist: "",
         janre: "",
+        comment: "",
         image: "",
         createAt: Timestamp.now().toDate()
     });
@@ -34,6 +35,7 @@ export default function AddBoard() {
                 title: "",
                 artist: "",
                 janre: "",
+                comment: "",
                 image: ""
             });
 
@@ -44,6 +46,7 @@ export default function AddBoard() {
                     title: formData.title,
                     artist: formData.artist,
                     janre: formData.janre,
+                    comment: formData.comment,
                     imgurl: url,
                     createAt: Timestamp.now().toDate() 
                 })
@@ -60,14 +63,15 @@ export default function AddBoard() {
 
     return (
         <div className='createBox'>
-            <h1>create ablums</h1>
-            <label htmlFor="">title</label>
+            <label htmlFor="">Title</label>
             <input type="text" name='title' value={formData.title} onChange={e=>handleChange(e)} />
-            <label htmlFor="">artist</label>
+            <label htmlFor="">Artist</label>
             <input type="text" name='artist' value={formData.artist} onChange={e=>handleChange(e)} />
-            <label htmlFor="">janre</label>
+            <label htmlFor="">Janre</label>
             <input type="text" name='janre' value={formData.janre} onChange={e=>handleChange(e)} />
-            <label htmlFor="">image</label>
+            <label htmlFor="">Comment</label>
+            <textarea name='comment' value={formData.comment} onChange={e=>handleChange(e)} />
+            <label htmlFor="">Image</label>
             <input type="file" name="image" accept='image/*' onChange={e=>handleImageChange(e)} />
             <button onClick={handleSubmit}>create</button>
         </div>

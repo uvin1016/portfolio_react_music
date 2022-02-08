@@ -24,20 +24,26 @@ export default function Board() {
             <ToastContainer />
             <div className="inner">
                 <div className="createBoard">
+                    <h1>Can you recommend an album?</h1>
                     <AddBoard />
                 </div>
-                <div className="board">    
+                <div className="boardList">    
                     {
-                        list.map(({id,title,artist,janre,imgurl,createAt})=>{
+                        list.map(({id,title,artist,janre,imgurl,createAt,comment})=>{
                             return(
                                 <article key={id}>
-                                    <h1>{title}</h1>
-                                    <h2>{artist}</h2>
-                                    <div className="pic" style={{width: 300, height: 300, position: 'relative', overflow: 'hidden'}}>
-                                        <img src={imgurl} alt={title} style={{position: 'absolute', width: '100%', height: '100%', top: 0, left: 0}} />
+                                    <div className="wrap">
+                                        <div className="pic" style={{width: 300, height: 300, position: 'relative', overflow: 'hidden'}}>
+                                            <img src={imgurl} alt={title} style={{position: 'absolute', width: '100%', height: '100%', top: 0, left: 0}} />
+                                        </div>
+                                        <div className="txt">
+                                            <p>{createAt.toDate().toDateString()}</p>
+                                            <h1>{title}</h1>
+                                            <h2>{artist}</h2>
+                                            <p>{janre}</p>
+                                            <p>{comment}</p>
+                                        </div>
                                     </div>
-                                    <p>{createAt.toDate().toDateString()}</p>
-                                    <p>{janre}</p>
                                 </article>
                             )
                         })

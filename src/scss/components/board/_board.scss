@@ -1,0 +1,116 @@
+.board {
+    height: 100%;
+    overflow: auto;
+    padding: 100px 0;
+
+    .inner {
+        width: 1180px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+        .createBoard {
+            width: 400px;
+            height: fit-content;
+            padding: 30px;
+            position: sticky;
+            top: 0;
+            border: 1px solid #888;
+            border-radius: 7px;
+
+            
+            >h1 {
+                font: 300 20px/1.2 "Merriweather Sans";
+                color: #fff;
+                margin-bottom: 15px;
+            }
+
+            .createBox {
+                width: 100%;
+                height: 100%;
+
+                label {
+                    display: block;
+                    width: 100%;
+                    font: 300 14px/1 "Merriweather Sans";
+                    color: #888;
+                    margin-bottom: 10px;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 5px 10px;
+                    margin-bottom: 20px;
+                    font: 300 14px/1.2 "Merriweather Sans";
+                    color: #050505;
+                    border: none;
+                }
+
+                input[type=file] {
+                    padding: 5px 0px;
+                }
+
+                textarea {
+                    width: 100%;
+                    height: 100px;
+                    padding: 5px 10px;
+                    margin-bottom: 20px;
+                    font: 300 14px/1.2 "Merriweather Sans";
+                    color: #050505;
+                    border: none;
+                    resize: none;
+                }
+
+                >button {
+                    width: 100%;
+                    border: 1px solid #888;
+                    background-color: transparent;
+                    font: 300 14px/1 "Merriweather Sans";
+                    color: #fff;
+                    padding: 10px;
+                    cursor: pointer;
+                    transition: .3s;
+
+                    &:hover {
+                        background-color: darkslateblue;
+                        border: 1px solid darkslateblue;
+                    }
+                }
+            }
+        }
+
+        .boardList {
+            width: calc(100% - 450px);
+            border-top: 1px solid #888;
+
+            article {
+                width: 100%;
+                border-bottom: 1px solid #888;
+                
+                .wrap {
+                    width: 100%;
+                    height: 100%;
+                    padding: 30px 0;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .pic {
+                        width: 300px;
+                        position: relative;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    
+                    .txt {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
