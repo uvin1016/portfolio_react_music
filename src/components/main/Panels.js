@@ -1,20 +1,25 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Btns from "./Btns";
 
 function Panels(){
     const path = process.env.PUBLIC_URL;
     const [albums, setAlbums] = useState([]);
+    const deg = 360/12;
+    const frame = useRef(null);
 
     const playMusic = e=>{
-        let isActive = e.currentTarget.closest("article").classList.contains('play');
+        let isPlay = e.currentTarget.classList.contains('play');
 
-        if(isActive){
+        if(isPlay){
+            e.currentTarget.classList.remove('play');
+            e.currentTarget.closest("article").querySelector("audio").pause();
             e.currentTarget.closest("article").classList.remove('play');
-            e.currentTarget.querySelector("audio").pause();
         }else{
             initMusic();
+            e.currentTarget.classList.add('play');
+            e.currentTarget.closest("article").querySelector("audio").play();
             e.currentTarget.closest("article").classList.add('play');
-            e.currentTarget.querySelector("audio").play();
         }
     }
 
@@ -24,7 +29,8 @@ function Panels(){
         for(let playBox of playBoxes){
             playBox.querySelector('audio').pause();
             playBox.querySelector('audio').load();
-            playBox.classList.remove('play');
+            playBox.querySelector('.playBtn').classList.remove('play');
+            playBox.closest("article").classList.remove('play');
         }
     }
 
@@ -35,31 +41,32 @@ function Panels(){
     },[])
 
     return (
-        <div className="panelWrap">
-            {
-                albums.map((music, index)=>{
-                    if(index < 12){
+        <main>
+            <Btns frame={frame} />
+            <div className="panel" ref={frame}>
+                {
+                    albums.map((music, index)=>{
+                        let style = {transform: `rotate(${deg*index}deg) translateY(-100vh)`}
                         return (
-                            <article key={index} className="album">
-                                <div className="wrap" onClick={e=>{
-                                    playMusic(e);
-                                }}>
-                                    <div className="pic">
-                                        <img src={`${path}`+music.img} />
+                            <article key={index} className="album" style={style}>
+                                <div className="wrap">
+                                    <div className="pic" style={{backgroundImage: "url("+`${path}`+music.img+")"}}>
+                                        <div className="dot"></div>
                                     </div>
                                     <div className="txt">
-                                        <h2>{music.title}</h2>
+                                        <h2 >{music.title}</h2>
                                         <h3>{music.artist}</h3>
                                         <p>{music.janre}</p>
                                         <audio src={`${path}`+music.mp3}></audio>
                                     </div>
+                                    <button className="playBtn" onClick={e=>playMusic(e)}><i className="las la-play"></i><i className="las la-pause"></i></button>
                                 </div>
                             </article>
                         )
-                    }
-                })
-            }
-        </div>
+                    })
+                }
+            </div>
+        </main>
     )
 }
 

@@ -1,7 +1,7 @@
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import React, { useState } from 'react';
-import { db, storage } from '../FirebaseConfig';
+import { db, storage } from '../../FirebaseConfig';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -29,7 +29,6 @@ export default function AddBoard() {
         }
         const storageRef = ref(storage,`images/${Date.now()}${formData.image.name}`);
         const uploadImage =  uploadBytesResumable(storageRef, formData.image);
-
         uploadImage.on("state_changed", ()=>{
             setFormData({
                 title: "",
@@ -51,7 +50,7 @@ export default function AddBoard() {
                 .then(()=>{
                     toast.success("업로드에 성공했습니다.");
                 })
-                .catch(err=>{
+                .catch(()=>{
                     toast.error("업로드에 실패했습니다.");
                 });
             })
@@ -69,8 +68,7 @@ export default function AddBoard() {
             <label htmlFor="">janre</label>
             <input type="text" name='janre' value={formData.janre} onChange={e=>handleChange(e)} />
             <label htmlFor="">image</label>
-            <input type="file" name="image" accept='image/*'  onChange={e=>handleImageChange(e)} />
-
+            <input type="file" name="image" accept='image/*' onChange={e=>handleImageChange(e)} />
             <button onClick={handleSubmit}>create</button>
         </div>
     )

@@ -1,23 +1,18 @@
 import './css/style.css';
+import {Route} from 'react-router-dom';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-import Board from './components/Board';
-import AddBoard from './components/AddBoard';
+import Board from './components/board/Board';
 import Panels from './components/main/Panels';
-import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <main>
-        <Panels />
-      </main>
-      <section>
-        <AddBoard />
-        <Board />
-      </section>
-      <ToastContainer />
+
+      <Route exact path="/" component={Panels} />
+      <Route path="/board" component={Board} />
+      
       <Footer />
     </div>
   );

@@ -1,10 +1,17 @@
 @charset "UTF-8";
 
+// font
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
+
 // common
-@import "common/reset";
-@import "common/header";
-@import "common/footer";
+@import "components/common/reset";
+@import "components/common/header";
+@import "components/common/footer";
 
 // main
-@import "main/panel";
-@import "main/board";
+@import "components/main/panel";
+
+// board
+@import "components/board/board";
+@import "components/main/btns"
