@@ -178,89 +178,6 @@ main {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
-.board {
-  height: 100%;
-  overflow: auto;
-  padding: 100px 0; }
-  .board .inner {
-    width: 1180px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    position: relative; }
-    .board .inner .createBoard {
-      width: 400px;
-      height: fit-content;
-      padding: 30px;
-      position: sticky;
-      top: 0;
-      border: 1px solid #888;
-      border-radius: 7px; }
-      .board .inner .createBoard > h1 {
-        font: 300 20px/1.2 "Merriweather Sans";
-        color: #fff;
-        margin-bottom: 15px; }
-      .board .inner .createBoard .createBox {
-        width: 100%;
-        height: 100%; }
-        .board .inner .createBoard .createBox label {
-          display: block;
-          width: 100%;
-          font: 300 14px/1 "Merriweather Sans";
-          color: #888;
-          margin-bottom: 10px; }
-        .board .inner .createBoard .createBox input {
-          width: 100%;
-          padding: 5px 10px;
-          margin-bottom: 20px;
-          font: 300 14px/1.2 "Merriweather Sans";
-          color: #050505;
-          border: none; }
-        .board .inner .createBoard .createBox input[type=file] {
-          padding: 5px 0px; }
-        .board .inner .createBoard .createBox textarea {
-          width: 100%;
-          height: 100px;
-          padding: 5px 10px;
-          margin-bottom: 20px;
-          font: 300 14px/1.2 "Merriweather Sans";
-          color: #050505;
-          border: none;
-          resize: none; }
-        .board .inner .createBoard .createBox > button {
-          width: 100%;
-          border: 1px solid #888;
-          background-color: transparent;
-          font: 300 14px/1 "Merriweather Sans";
-          color: #fff;
-          padding: 10px;
-          cursor: pointer;
-          transition: .3s; }
-          .board .inner .createBoard .createBox > button:hover {
-            background-color: darkslateblue;
-            border: 1px solid darkslateblue; }
-    .board .inner .boardList {
-      width: calc(100% - 450px);
-      border-top: 1px solid #888; }
-      .board .inner .boardList article {
-        width: 100%;
-        border-bottom: 1px solid #888; }
-        .board .inner .boardList article .wrap {
-          width: 100%;
-          height: 100%;
-          padding: 30px 0;
-          display: flex;
-          justify-content: space-between; }
-          .board .inner .boardList article .wrap .pic {
-            width: 300px;
-            position: relative; }
-            .board .inner .boardList article .wrap .pic img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover; }
-          .board .inner .boardList article .wrap .txt {
-            color: #fff; }
-
 .btnPrev {
   width: 60px;
   height: 60px;
@@ -338,5 +255,87 @@ main {
     transform: rotate(30deg); }
   .btnNext:hover::after {
     transform: rotate(-30deg); }
+
+aside {
+  width: 400px;
+  height: 650px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #fff;
+  border-radius: 8px;
+  padding: 50px 0px 70px;
+  overflow: hidden; }
+  aside .signIn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 20px;
+    background-color: darkslateblue;
+    font: 400 18px/1.2 "Chakra Petch";
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer; }
+  aside .signOut {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 7px 15px;
+    border: 1px solid darkslateblue;
+    font: 600 14px/1.2 "Chakra Petch";
+    color: darkslateblue;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: transparent; }
+  aside .inner {
+    width: 100%;
+    height: 100%;
+    padding: 30px 0; }
+    aside .inner .message {
+      display: flex;
+      margin-bottom: 20px; }
+      aside .inner .message > img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%; }
+      aside .inner .message p {
+        padding: 15px 20px;
+        border-radius: 10px;
+        font: 300 14px/1.4 "arial"; }
+      aside .inner .message.sent {
+        flex-direction: row-reverse;
+        margin-right: 10px; }
+        aside .inner .message.sent p {
+          background-color: darkslateblue;
+          color: #fff;
+          margin-right: 15px; }
+      aside .inner .message.received {
+        margin-left: 10px; }
+        aside .inner .message.received p {
+          background-color: #aaa;
+          color: #050505;
+          margin-left: 15px; }
+  aside > form {
+    width: 100%;
+    height: 75px;
+    display: flex; }
+    aside > form input {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      background: rgba(72, 61, 139, 0.5);
+      font: 400 16px/1.4 "arial";
+      color: #fff;
+      outline: none; }
+    aside > form > button {
+      width: 50px;
+      background-color: darkslateblue;
+      cursor: pointer; }
+      aside > form > button i {
+        font-size: 18px;
+        color: #fff; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,110 @@
+aside {
+    width: 400px;
+    height: 650px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #fff;
+    border-radius: 8px;
+    padding: 50px 0px 70px;
+    overflow: hidden;
+
+
+    .signIn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 15px 20px;
+        background-color: darkslateblue;
+        font: 400 18px/1.2 "Chakra Petch";
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .signOut {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        padding: 7px 15px;
+        border: 1px solid darkslateblue;
+        font: 600 14px/1.2 "Chakra Petch";
+        color: darkslateblue;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: transparent;
+    }
+
+    .inner {
+        width: 100%;
+        height: 100%;
+        padding: 30px 0;
+
+        .message {
+            display: flex;
+            margin-bottom: 20px;
+
+            >img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+
+            p {
+                padding: 15px 20px;
+                border-radius: 10px;
+                font: 300 14px/1.4 "arial";
+            }
+
+            &.sent {
+                flex-direction: row-reverse;
+                margin-right: 10px;
+    
+                p {
+                    background-color: darkslateblue;
+                    color: #fff;
+                    margin-right: 15px;
+                }
+            }
+
+            &.received {
+                margin-left: 10px;
+
+                p {
+                    background-color: #aaa;
+                    color: #050505;
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+
+    >form {
+        width: 100%;
+        height: 75px;
+        display: flex;
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: rgba(72, 61, 139, 0.5);
+            font: 400 16px/1.4 "arial";
+            color: #fff;
+            outline: none;
+        }
+
+        >button {
+            width: 50px;
+            background-color: darkslateblue;
+            cursor: pointer;
+            i {
+                font-size: 18px;
+                color: #fff;
+            }
+        }
+    }
+}

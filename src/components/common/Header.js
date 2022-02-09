@@ -7,7 +7,7 @@ function Header(){
         <header>
             <div className="inner">
                 <h1><NavLink exact to="/">UFOLIO</NavLink></h1>
-                <NavLink activeStyle={active} to="/board">BOARD</NavLink>
+                <NavLink activeStyle={active} to="/chat">Chat</NavLink>
             </div>
         </header>
     )
