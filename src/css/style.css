@@ -302,6 +302,7 @@ aside {
         height: 50px;
         border-radius: 50%; }
       aside .inner .message p {
+        max-width: 300px;
         padding: 15px 20px;
         border-radius: 10px;
         font: 300 14px/1.4 "arial"; }
