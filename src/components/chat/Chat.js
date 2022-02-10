@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
@@ -76,7 +76,6 @@ const ChatRoom = ()=>{
         </>
     )
 }
-
 const ChatMessage = (props)=>{
     const { text, uid, photoURL } = props.message;
     const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
@@ -92,13 +91,20 @@ const ChatMessage = (props)=>{
 }
 
 function Chat(){
+    const [isOn, setIsOn] = useState(false);
+    const toggleChat = ()=>setIsOn(!isOn);
     const [user] = useAuthState(auth);
 
     return(
-        <aside>
-            <SignOut />
-            {user ? <ChatRoom /> : <SignIn />}
-        </aside>
+        <>
+            <button onClick={toggleChat} className="chatBtn">Chat</button>
+            <aside className={isOn ? 'on' : null}>
+                <div className="chatBox">
+                    <SignOut />
+                    {user ? <ChatRoom /> : <SignIn />}
+                </div>
+            </aside>
+        </>
     )
 }
 

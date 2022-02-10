@@ -23,10 +23,10 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Chat />
 
       <Route exact path="/" component={Panels} />
-      <Route path="/chat" component={Chat} />
-      
+
       <Footer />
     </div>
   );
